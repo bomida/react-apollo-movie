@@ -1,5 +1,9 @@
+import React from "react";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+const MovieCover = styled.div``;
 
 const MovieBox = styled.div`
   border-radius: 7px;
@@ -33,23 +37,35 @@ const LikeBtn = styled.p`
     height: 8px;
     margin-left: 5px;
     border-radius: 50%;
-    background-color: #F4330E;
   }
   &:hover {
     color: #F4330E;
   }
 `;
 
-function Movie({ id, bg }) {
+const LIKE_MOVIE = gql`
+  mutation toggleLikeMovie($id: Int!, $isLiked: Boolean!) {
+    toggleLikeMovie(id: $id, isLiked: $isLiked) @client
+  }
+`;
+
+function Movie({ id, bg, isLiked }) {
+  const [toggleLikeMovie] = useMutation(LIKE_MOVIE, {
+    variables: { id: +id, isLiked },
+  });
+
   return (
-    <div>
+    <MovieCover id={id}>
       <MovieBox>
         <Link to={`/${id}`}>
           <Poster bg={bg} />
         </Link>
       </MovieBox>
-      <LikeBtn>Like<span /></LikeBtn>
-    </div>
+      <LikeBtn onClick={toggleLikeMovie}>
+        {isLiked ? "Unlike" : "Like"}
+        <span style={{ backgroundColor: isLiked ? "#222" : "#F4330E" }} />
+      </LikeBtn>
+    </MovieCover>
   );
 }
 

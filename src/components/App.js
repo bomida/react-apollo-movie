@@ -1,11 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '../App.css';
 import Detail from '../Routes/Detail';
 import Home from '../Routes/Home';
 
 function App() {
   return (
-    <BrowserRouter>
+    < BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:id" element={<Detail />} />

@@ -1,9 +1,30 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: "https://apollo-movie-server.herokuapp.com",
+  uri: 'http://localhost:4000/graphql',
   cache: new InMemoryCache(),
+  resolvers: {
+    Movie: {
+      isLiked: () => false,
+    },
+    Mutation: {
+      toggleLikeMovie: (_, { id, isLiked }, { cache }) => {
+        console.log(isLiked);
+        const myMovie = {
+          __typename: 'Movie',
+          id: `${id}`,
+          isLiked: `${isLiked}`,
+        };
+        cache.modify({
+          id: cache.identify(myMovie),
+          fields: {
+            isLiked(cachedName) {
+              return !isLiked;
+            },
+          },
+        });
+      },
+    },
+  },
 });
-
-// uri: "https://movieql2.vezrcel.app",
 export default client;
