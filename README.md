@@ -34,3 +34,14 @@
   - useQuery 훅으로 영화 정보가 담긴 API를 가져 왔습니다.
 ### styled-component
   - JSX와 스타일 코드를 분리하기 위해 styled-component를 사용하였습니다.
+
+  <br>
+
+## 개발 환경
+  - 개발도구: VSCode, Github
+  - 사용언어: ReactJS
+
+  <br>
+
+## 레퍼런스
+  - [Nomadcoder](https://nomadcoders.co)
