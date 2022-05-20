@@ -1,7 +1,7 @@
 # react-apollo-movie
 
 ## 소개
-Apollo, GraphQL, React를 이용한 영화앱을 만들어보았습니다.
+이전 시간에 GraphQL Yoga로 API를 간단하게 만들어보고, 연습했던 내용을 Apollo, React를 이용하여 영화 추천 웹 사이트를 만들어보았습니다.
 
 <br/>
 
@@ -25,12 +25,12 @@ Apollo, GraphQL, React를 이용한 영화앱을 만들어보았습니다.
 
 ## 사용기능
 ### React
-### React Router
+### React Router Dom
+  - useParams, link
+  - 포스터를 클릭하면 detail 페이지로 넘어가 해당 포스터의 id 값을 정보를 받아서 포스터 이미지와 다양한 정보들을 가져와 화면에 보여줍니다.
+  - detail 페이지에서 다시 Home으로 가기위해 link를 이용하였습니다.
 ### Apollo
-### GraphQL
+  - useQuery
+  - useQuery 훅으로 영화 정보가 담긴 API를 가져 왔습니다.
 ### styled-component
-
-<br/>
-
-## Study Note
-[Apollo Movie app Note]()
+  - JSX와 스타일 코드를 분리하기 위해 styled-component를 사용하였습니다.

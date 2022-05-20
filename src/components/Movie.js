@@ -1,5 +1,5 @@
 import React from "react";
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
